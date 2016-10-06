@@ -1,0 +1,3 @@
+[submodule "GameWork.Core"]
+	path = GameWork.Core
+	url = https://github.com/JaredGG/GameWork.Core.git
