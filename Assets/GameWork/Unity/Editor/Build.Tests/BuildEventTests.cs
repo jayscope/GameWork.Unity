@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 
-namespace GameWork.Unity.Editor.Tests
+namespace GameWork.Unity.Editor.Build.Tests
 {
     [TestFixture]
     public static class BuildEventTests
