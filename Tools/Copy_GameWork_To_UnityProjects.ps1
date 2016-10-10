@@ -1,5 +1,7 @@
+$gameWorkRoot = "GameWork.Unity"
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$parentDir = Split-Path -Parent $scriptDir
+$splitIndex = $scriptDir.IndexOf($gameWorkRoot)
+$parentDir = $scriptDir.Substring(0, $splitIndex + $gameWorkRoot.Length)
 
 function DeleteDir([String] $dir)
 {

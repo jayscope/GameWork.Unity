@@ -76,3 +76,6 @@ sysinfo.txt
 **/UnityProjects/*.sln
 **/Assets/GameWork/*
 **/Assets/GameWork.meta
+UnityProjects/PackageBuilder/PackageBuilder.CSharp.Editor.csproj
+UnityProjects/Tests/Tests.CSharp.Editor.csproj
+UnityProjects/Tests/Tests.sln

@@ -1,5 +1,4 @@
-﻿using GameWork.Unity.Editor.Build;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;

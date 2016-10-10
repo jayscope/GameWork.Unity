@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using UnityEditor;
 
 namespace GameWork.Unity.Editor.Build
@@ -6,14 +7,60 @@ namespace GameWork.Unity.Editor.Build
     public static class Builder
     {
         public static string BuildPath { private get; set; }
-        
-        public static void Build(string[] buildTargets)
+
+        public static string TargetBuildExtension
         {
-            foreach (var buildTargetString in buildTargets)
+            get
             {
-                var buildTarget = (BuildTarget) Enum.Parse(typeof(BuildTarget), buildTargetString);
-                Build(buildTarget);
+                switch (EditorUserBuildSettings.activeBuildTarget)
+                {
+                    case BuildTarget.StandaloneWindows64:
+                    case BuildTarget.StandaloneWindows:
+                        return ".exe";
+
+                    case BuildTarget.WebGL:
+                    case BuildTarget.iOS:
+                        return string.Empty;
+
+                    case BuildTarget.Android:
+                        return ".apk";
+
+                    case BuildTarget.StandaloneLinux:
+                    case BuildTarget.StandaloneLinux64:
+                    case BuildTarget.StandaloneLinuxUniversal:
+                    case BuildTarget.PS3:
+                    case BuildTarget.XBOX360:
+                    case BuildTarget.StandaloneOSXUniversal:
+                    case BuildTarget.StandaloneOSXIntel:
+                    case BuildTarget.StandaloneOSXIntel64:
+                    case BuildTarget.WSAPlayer:
+                    case BuildTarget.Tizen:
+                    case BuildTarget.PSP2:
+                    case BuildTarget.PS4:
+                    case BuildTarget.PSM:
+                    case BuildTarget.XboxOne:
+                    case BuildTarget.SamsungTV:
+                    case BuildTarget.Nintendo3DS:
+                    case BuildTarget.WiiU:
+                    case BuildTarget.tvOS:
+                        throw new NotImplementedException();
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
+        }
+
+        public static string[] Build(BuildTarget[] buildTargets)
+        {
+            var buildPaths = new string[buildTargets.Length];
+
+            for (var i = 0; i < buildTargets.Length; i++)
+            {
+                buildPaths[i] = Build(buildTargets[i]);
+            }
+
+            return buildPaths;
         }
 
         public static void Build()
@@ -21,23 +68,26 @@ namespace GameWork.Unity.Editor.Build
             Build(EditorUserBuildSettings.activeBuildTarget);
         }
 
-        public static void Build(BuildTarget buildTarget)
+        public static string Build(BuildTarget buildTarget)
         {
             EditorUserBuildSettings.SwitchActiveBuildTarget(buildTarget);
 
             SetDefaults();
-            
+
             var buildEventCache = new BuildEventCache();
             buildEventCache.Execute(EventType.Pre, buildTarget);
 
-            BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, BuildPath, buildTarget, BuildOptions.None);
+            var buildPath = BuildPath;
+            BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, buildPath, buildTarget, BuildOptions.None);
 
             buildEventCache.Execute(EventType.Post, buildTarget);
+
+            return buildPath;
         }
 
         private static void SetDefaults()
         {
-            BuildPath = "Builds/" + EditorUserBuildSettings.activeBuildTarget;
+            BuildPath = "Builds/" + EditorUserBuildSettings.activeBuildTarget + TargetBuildExtension;
         }
     }
 }
