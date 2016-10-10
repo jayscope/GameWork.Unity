@@ -70,8 +70,7 @@ namespace GameWork.Unity.Editor.Build
 
         public static string Build(BuildTarget buildTarget)
         {
-            EditorUserBuildSettings.SwitchActiveBuildTarget(buildTarget);
-
+            SetPlatform(buildTarget);
             SetDefaults();
 
             var buildEventCache = new BuildEventCache();
@@ -83,6 +82,14 @@ namespace GameWork.Unity.Editor.Build
             buildEventCache.Execute(EventType.Post, buildTarget);
 
             return buildPath;
+        }
+
+        private static void SetPlatform(BuildTarget buildTarget)
+        {
+            if (EditorUserBuildSettings.activeBuildTarget != buildTarget)
+            {
+                EditorUserBuildSettings.SwitchActiveBuildTarget(buildTarget);
+            }
         }
 
         private static void SetDefaults()

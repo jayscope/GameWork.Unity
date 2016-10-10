@@ -57,6 +57,7 @@
     <Compile Include="Build\BuilderMenu.cs" />
     <Compile Include="Build\BuildEventAttribute.cs" />
     <Compile Include="Build\BuildEventCache.cs" />
+    <Compile Include="Build\CommandlineBuilder.cs" />
     <Compile Include="Build\EventType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

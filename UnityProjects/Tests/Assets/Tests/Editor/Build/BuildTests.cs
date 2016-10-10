@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using NUnit.Framework;
 using UnityEditor;
+using UnityEngine;
 
 namespace GameWork.Unity.Editor.Build.Tests
 {
