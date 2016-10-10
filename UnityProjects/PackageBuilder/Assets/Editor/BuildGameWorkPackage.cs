@@ -8,7 +8,8 @@ public static class BuildGameWorkPackage
     [MenuItem("Tools/Build GameWork Package")]
     public static void Build()
     {
-        var packageFile = Directory.GetParent(Application.dataPath) + "/Builds/GameWork.Unity.unitypackage";
+        var rootDir = Directory.GetParent(Application.dataPath).Parent.Parent.FullName;
+        var packageFile = rootDir + "/Builds/GameWork.Unity.unitypackage";
         var gameWorkDir = "Assets/GameWork";
 
         var packageAssetPaths = new List<string>();

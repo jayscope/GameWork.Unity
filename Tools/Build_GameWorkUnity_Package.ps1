@@ -5,8 +5,8 @@ $parentDir = Split-Path -Parent $scriptDir
 $logFile = Join-Path $scriptDir "BuildPackage.log"
 
 Write-Output "Logging to: $logFile"
-Write-Output "Opening project: $parentDir"
+Write-Output "Opening project: $projectDir"
 
-& $unityPath -quit -batchMode -logFile $logFile -projectPath $parentDir -executeMethod BuildGameWorkPackage.Build
+& $unityPath -quit -batchMode -logFile $logFile -projectPath $projectDir -executeMethod BuildGameWorkPackage.Build
 
 Pause

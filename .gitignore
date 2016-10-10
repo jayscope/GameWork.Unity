@@ -54,10 +54,9 @@ ehthumbs.db
 *.nuget.targets
 
 # Unity
-/[Ll]ibrary/
-/[Tt]emp/
-/[Bb]uilds/
-/Assets/AssetStoreTools*
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Bb]uilds/
 *.unitypackage
 
 # Unity3D generated meta files
@@ -71,3 +70,9 @@ sysinfo.txt
 
 # Builds
 *.dll
+
+# GameWork.Unity/UnityProjects
+**/UnityProjects/*.csproj
+**/UnityProjects/*.sln
+**/Assets/GameWork/*
+**/Assets/GameWork.meta
