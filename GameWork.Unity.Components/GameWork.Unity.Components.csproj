@@ -70,8 +70,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>powershell $(SolutionDir)\Tools\Copy_GameWork_To_UnityProjects.ps1
-powershell $(SolutionDir)\Tools\Build_GameWorkUnity_Package.ps1
+    <PostBuildEvent>
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
