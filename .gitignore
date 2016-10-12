@@ -10,28 +10,6 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
-# Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-bld/
-[Bb]in/
-[Oo]bj/
-[Ll]og/
-**[Bb]uild/
-
-# NUNIT
-*.VisualState.xml
-TestResult.xml
-
-# ReSharper is a .NET coding add-in
-_ReSharper*/
-*.[Rr]e[Ss]harper
-*.DotSettings.user
-
 # OS
 .DS_Store*
 ._*
@@ -42,24 +20,12 @@ ehthumbs.db
 [Tt]humbs.db
 [Dd]esktop.ini
 
-# NuGet Packages
-*.nupkg
-# The packages folder can be ignored because of Package Restore
-**/packages/*
-# except build/, which is used as an MSBuild target.
-!**/packages/build/
-# Uncomment if necessary however generally it will be regenerated when needed
-#!**/packages/repositories.config
-# NuGet v3's project.json files produces more ignoreable files
-*.nuget.props
-*.nuget.targets
-
 # Unity
 **/[Ll]ibrary/
 **/[Tt]emp/
-**/[Bb]uild/
 *.unitypackage
 *.pidb.meta
+UnityProject/[Bb]uild/
 UnityProject/*.csproj
 UnityProject/*.sln
 
