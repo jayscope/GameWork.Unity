@@ -28,5 +28,3 @@ Get-ChildItem $sourcePath -Recurse -Include '*.cs' -Exclude 'AssemblyInfo.cs' | 
     Write-Output "Copying: $_"
     Copy-Item $_ -Destination $destDir
 }
-
-Pause
