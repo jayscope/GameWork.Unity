@@ -21,6 +21,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+**[Bb]uild/
 
 # NUNIT
 *.VisualState.xml
@@ -56,26 +57,18 @@ ehthumbs.db
 # Unity
 **/[Ll]ibrary/
 **/[Tt]emp/
-**/[Bb]uilds/
+**/[Bb]uild/
 *.unitypackage
-
-# Unity3D generated meta files
 *.pidb.meta
+UnityProject/*.csproj
+UnityProject/*.sln
+
+# GameWork.Core
+UnityProject/Assets/GameWork/Core
+UnityProject/Assets/GameWork/Core.meta
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
 
 # Debugging
 *.log
-
-# Builds
-*.dll
-
-# GameWork.Unity/UnityProjects
-**/UnityProjects/*.csproj
-**/UnityProjects/*.sln
-**/Assets/GameWork/*
-**/Assets/GameWork.meta
-UnityProjects/PackageBuilder/PackageBuilder.CSharp.Editor.csproj
-UnityProjects/Tests/Tests.CSharp.Editor.csproj
-UnityProjects/Tests/Tests.sln
