@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using UnityEditor;
 
 namespace GameWork.Unity.Editor.Build
@@ -77,6 +78,7 @@ namespace GameWork.Unity.Editor.Build
             buildEventCache.Execute(EventType.Pre, buildTarget);
 
             var buildPath = BuildPath;
+            CheckBuildPath(buildPath);
             BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, buildPath, buildTarget, BuildOptions.None);
 
             buildEventCache.Execute(EventType.Post, buildTarget);
@@ -95,6 +97,42 @@ namespace GameWork.Unity.Editor.Build
         private static void SetDefaults()
         {
             BuildPath = "Build/" + EditorUserBuildSettings.activeBuildTarget + TargetBuildExtension;
+        }
+
+        private static void CheckBuildPath(string buildPath)
+        {
+            if (Path.HasExtension(buildPath))
+            {
+                if (File.Exists(buildPath))
+                {
+                    File.Delete(buildPath);
+                }
+                else
+                {
+                    var buildDir = Path.GetDirectoryName(buildPath);
+                    CheckBuildDir(buildDir);
+                }
+            }
+            else
+            {
+                if (Directory.Exists(buildPath))
+                {
+                    Directory.Delete(buildPath, true);
+                }
+                else
+                {
+                    var buildDir = Directory.GetParent(buildPath).FullName;
+                    CheckBuildDir(buildDir);
+                }
+            }
+        }
+
+        private static void CheckBuildDir(string buildDir)
+        {
+            if (!Directory.Exists(buildDir))
+            {
+                Directory.CreateDirectory(buildDir);
+            }
         }
     }
 }
