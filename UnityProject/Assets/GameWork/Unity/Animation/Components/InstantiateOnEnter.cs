@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-namespace GameWork.Unity.Components.Animation
+namespace GameWork.Unity.Animation.Components
 {
 	/// <summary>
 	/// Attach this to an animation state to instantiate a specific 
 	/// GameObject when this animation state is entered.
 	/// </summary>
-	public class InstantiateGameObject : StateMachineBehaviour 
+	public class InstantiateOnEnter : StateMachineBehaviour 
 	{
 		[SerializeField]
 		private GameObject _instantiate;
