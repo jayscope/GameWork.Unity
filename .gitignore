@@ -25,16 +25,31 @@ ehthumbs.db
 **/[Tt]emp/
 *.unitypackage
 *.pidb.meta
-UnityProject/[Bb]uild/
-UnityProject/*.csproj
-UnityProject/*.sln
+Unity/[Bb]uild/
+Unity/*.csproj
+Unity/*.sln
+*.xml.meta
+*.pdb.meta
+*.mdb.meta
 
 # GameWork.Core
-UnityProject/Assets/GameWork/Core
-UnityProject/Assets/GameWork/Core.meta
+Unity/Assets/GameWork/Core
+Unity/Assets/GameWork/Core.meta
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
 
 # Debugging
 *.log
+
+# GameWork
+[Bb]uild/
+
+# Visual Studio
+[Pp]ackages/
+**/[Oo]bj/**
+**/[Bb]in/**
+*.dll
+*.mdb
+*.pdb
+*.xml
