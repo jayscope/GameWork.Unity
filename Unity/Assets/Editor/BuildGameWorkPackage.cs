@@ -23,21 +23,31 @@ public static class BuildGameWorkPackage
     [MenuItem("Tools/Build GameWork Package")]
     public static void Build()
     {
+        EditorUtility.DisplayProgressBar("Building GameWork Package", "Pre-processing...", 0);
+
         var packageAssetPaths = new List<string>();
+        var assetPaths = AssetDatabase.GetAllAssetPaths();
 
         // GameWork
-        foreach (var assetPath in AssetDatabase.GetAllAssetPaths())
+        var progress = 0f;
+        foreach (var assetPath in assetPaths)
         {
+            EditorUtility.DisplayProgressBar("Building GameWork Package", assetPath, progress / assetPaths.Length);
+
             if (assetPath.StartsWith(GameWorkDir) 
                 && File.Exists(assetPath)   // is file?
-                && Path.GetExtension(assetPath) == ".dll"
-                && (IsTypeForDirectory(assetPath) || IsThirdParty(assetPath))
+                && IsValidFileType(assetPath)
+                && (IsTypeForDirectory(assetPath) || IsThirdParty(assetPath) || MustBeKept(assetPath))
                 && !Path.GetFileName(assetPath).Contains(".Tests"))
             {
                 packageAssetPaths.Add(assetPath);
                 Debug.Log("Adding: " + assetPath);
             }
+
+            progress++;
         }
+
+        EditorUtility.DisplayProgressBar("Building GameWork Package", "Exporting...", 1);
 
         var packageDir = Path.GetDirectoryName(PackagePath);
         if (!Directory.Exists(packageDir))
@@ -48,6 +58,22 @@ public static class BuildGameWorkPackage
         AssetDatabase.ExportPackage(packageAssetPaths.ToArray(), PackagePath);
 
         Debug.Log("Exported package to: \"" + PackagePath + "\"");
+
+        EditorUtility.ClearProgressBar();
+    }
+
+    private static bool MustBeKept(string assetPath)
+    {
+        var extension = Path.GetExtension(assetPath);
+        var validExtensions = new string[] {".md" };
+        return validExtensions.Contains(extension);
+    }
+
+    private static bool IsValidFileType(string assetPath)
+    {
+        var extension = Path.GetExtension(assetPath);
+        var validExtensions = new string[] {".dll", ".md"};
+        return validExtensions.Contains(extension);
     }
 
     private static bool IsTypeForDirectory(string assetPath)

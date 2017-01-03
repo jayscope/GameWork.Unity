@@ -21,8 +21,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Factories", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Interfaces", "GameWork.Core\GameWork.Core.Interfaces\GameWork.Core.Interfaces.csproj", "{B5F3B28A-10BF-4193-920A-3F8AA6817799}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Interfacing", "GameWork.Core\GameWork.Core.Interfacing\GameWork.Core.Interfacing.csproj", "{5423B8B1-41ED-4476-9752-263E31D5A37E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.IO", "GameWork.Core\GameWork.Core.IO\GameWork.Core.IO.csproj", "{1C2C7CF3-79D3-40AC-B908-EA4DBF5D9AC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.Localization", "GameWork.Core\GameWork.Core.Localization\GameWork.Core.Localization.csproj", "{82CC29E6-A9AE-4621-8D25-1DEC3D9F3E7C}"
@@ -58,6 +56,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Unity.Engine.Math", "GameWork.Unity.Engine.Math\GameWork.Unity.Engine.Math.csproj", "{5AB4607F-C41A-4B9B-A4AF-3BD0580F910A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Core.ObjectPool", "GameWork.Core\GameWork.Core.ObjectPool\GameWork.Core.ObjectPool.csproj", "{7C2A6405-D635-467B-BFBF-3F802C9E7174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Unity.Engine.GameObjectPool", "GameWork.Unity.Engine.GameObjectPool\GameWork.Unity.Engine.GameObjectPool.csproj", "{52C3EED3-19DC-4F44-90C0-783BFD417A00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -118,12 +118,6 @@ Global
 		{B5F3B28A-10BF-4193-920A-3F8AA6817799}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B5F3B28A-10BF-4193-920A-3F8AA6817799}.Unity Debug|Any CPU.ActiveCfg = Unity Debug|Any CPU
 		{B5F3B28A-10BF-4193-920A-3F8AA6817799}.Unity Debug|Any CPU.Build.0 = Unity Debug|Any CPU
-		{5423B8B1-41ED-4476-9752-263E31D5A37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5423B8B1-41ED-4476-9752-263E31D5A37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5423B8B1-41ED-4476-9752-263E31D5A37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5423B8B1-41ED-4476-9752-263E31D5A37E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5423B8B1-41ED-4476-9752-263E31D5A37E}.Unity Debug|Any CPU.ActiveCfg = Unity Debug|Any CPU
-		{5423B8B1-41ED-4476-9752-263E31D5A37E}.Unity Debug|Any CPU.Build.0 = Unity Debug|Any CPU
 		{1C2C7CF3-79D3-40AC-B908-EA4DBF5D9AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C2C7CF3-79D3-40AC-B908-EA4DBF5D9AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C2C7CF3-79D3-40AC-B908-EA4DBF5D9AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -224,6 +218,12 @@ Global
 		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.Unity Debug|Any CPU.ActiveCfg = Unity Debug|Any CPU
 		{7C2A6405-D635-467B-BFBF-3F802C9E7174}.Unity Debug|Any CPU.Build.0 = Unity Debug|Any CPU
+		{52C3EED3-19DC-4F44-90C0-783BFD417A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52C3EED3-19DC-4F44-90C0-783BFD417A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52C3EED3-19DC-4F44-90C0-783BFD417A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52C3EED3-19DC-4F44-90C0-783BFD417A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52C3EED3-19DC-4F44-90C0-783BFD417A00}.Unity Debug|Any CPU.ActiveCfg = Unity Debug|Any CPU
+		{52C3EED3-19DC-4F44-90C0-783BFD417A00}.Unity Debug|Any CPU.Build.0 = Unity Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -238,7 +238,6 @@ Global
 		{96198EA6-16EC-434D-A5A7-E396E99A158B} = {2BC0A97D-7F26-4561-B922-927647F05269}
 		{0C31213F-FA68-49E4-BFEE-71AEFDB53921} = {2BC0A97D-7F26-4561-B922-927647F05269}
 		{B5F3B28A-10BF-4193-920A-3F8AA6817799} = {2BC0A97D-7F26-4561-B922-927647F05269}
-		{5423B8B1-41ED-4476-9752-263E31D5A37E} = {2BC0A97D-7F26-4561-B922-927647F05269}
 		{1C2C7CF3-79D3-40AC-B908-EA4DBF5D9AC3} = {2BC0A97D-7F26-4561-B922-927647F05269}
 		{82CC29E6-A9AE-4621-8D25-1DEC3D9F3E7C} = {2BC0A97D-7F26-4561-B922-927647F05269}
 		{FB406B0E-AED7-4482-9866-B64C7A64BB6C} = {2BC0A97D-7F26-4561-B922-927647F05269}
