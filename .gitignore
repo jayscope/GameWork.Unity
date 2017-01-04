@@ -49,10 +49,10 @@ sysinfo.txt
 [Pp]ackages/
 **/[Oo]bj/**
 **/[Bb]in/**
-*.dll
-*.mdb
-*.pdb
-*.xml
-
+**/*.dll
+**/*.mdb
+**/*.pdb
+**/*.xml
+!lib/**/*.dll
 # Keep
 Unity/Assets/Plugins/GameWork/ThirdParty/Newtonsoft.Json.dll
