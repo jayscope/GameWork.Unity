@@ -53,6 +53,7 @@ sysinfo.txt
 **/*.mdb
 **/*.pdb
 **/*.xml
-!lib/**/*.dll
+
 # Keep
-Unity/Assets/Plugins/GameWork/ThirdParty/Newtonsoft.Json.dll
+!lib/**/*.dll
+!Unity/Assets/Plugins/GameWork/ThirdParty/*

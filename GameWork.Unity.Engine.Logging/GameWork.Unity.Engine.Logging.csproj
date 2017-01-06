@@ -39,12 +39,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
       <Private>False</Private>
@@ -58,6 +53,7 @@
     <ProjectReference Include="..\GameWork.Core\GameWork.Core.Logging\GameWork.Core.Logging.csproj">
       <Project>{fb406b0e-aed7-4482-9866-b64c7a64bb6c}</Project>
       <Name>GameWork.Core.Logging</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -39,12 +39,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
       <Private>False</Private>
@@ -58,6 +53,7 @@
     <ProjectReference Include="..\GameWork.Core\GameWork.Core.ObjectPool\GameWork.Core.ObjectPool.csproj">
       <Project>{7C2A6405-D635-467B-BFBF-3F802C9E7174}</Project>
       <Name>GameWork.Core.ObjectPool</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -42,13 +42,9 @@
     <Reference Include="nunit.framework, Version=2.6.4.0, Culture=neutral, PublicKeyToken=7aba5c763ef4d5f9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Unity\Editor\Data\Managed\nunit.framework.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="UnityEditor">
       <HintPath>..\lib\unity\UnityEditor.dll</HintPath>
       <Private>False</Private>
@@ -67,6 +63,7 @@
     <ProjectReference Include="..\GameWork.Unity.Editor.Build\GameWork.Unity.Editor.Build.csproj">
       <Project>{4c85bba6-bc56-4aa8-a3f7-f351a6ad8cba}</Project>
       <Name>GameWork.Unity.Editor.Build</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
