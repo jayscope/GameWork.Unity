@@ -41,24 +41,28 @@ namespace GameWork.Unity.Editor.Build
 
         private void PopulateEventsDictionary()
         {
-            var assembly = Assembly.GetExecutingAssembly();
+			var assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
-            foreach (var type in assembly.GetTypes())
-            {
-                foreach (var methodInfo in type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static))
-                {
-                    var buildEvents = (BuildEvent[]) methodInfo.GetCustomAttributes(typeof(BuildEvent), true);
-                    foreach (var buildEvent in buildEvents)
-                    {
-                        _events[buildEvent.EventType].Add(new BuildEventMethodInfo()
-                        {
-                            Order = buildEvent.Order,
-                            BuildTargets = buildEvent.BuildTargets,
-                            MethodInfo = methodInfo,
-                        });
-                    }
-                }
-            }
+	        foreach (var assembly in assemblies)
+	        {
+		        foreach (var type in assembly.GetTypes())
+		        {
+			        foreach (
+				        var methodInfo in type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static))
+			        {
+				        var buildEvents = (BuildEvent[]) methodInfo.GetCustomAttributes(typeof(BuildEvent), true);
+				        foreach (var buildEvent in buildEvents)
+				        {
+					        _events[buildEvent.EventType].Add(new BuildEventMethodInfo()
+					        {
+						        Order = buildEvent.Order,
+						        BuildTargets = buildEvent.BuildTargets,
+						        MethodInfo = methodInfo,
+					        });
+				        }
+			        }
+		        }
+	        }
         }
 
         private void SortEventsDictionary()
