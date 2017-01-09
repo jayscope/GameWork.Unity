@@ -57,3 +57,4 @@ sysinfo.txt
 # Keep
 !lib/**/*.dll
 !Unity/Assets/Plugins/GameWork/ThirdParty/*
+*$RANDOM_SEED$*
