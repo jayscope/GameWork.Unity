@@ -7,14 +7,11 @@ Purpose:
 Collection and tools and scripts to aid development in Unity.
 Includes GameWork.Core: an engine agnostic .Net C# Framework for game development.
 
-
 Dependencies:
 
-GameWork.Core which is added as a submodule and has a tool provided to copy files into the GameWork Unity project.
+GameWork.Core which is added as a submodule.
+Use the CreateJunctions.bat file to setup the junctions required to build the GameWork.unitypackage
 
 Source:
 https://github.com/Game-Work/GameWork.Unity
-
-
-
 

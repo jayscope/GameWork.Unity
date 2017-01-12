@@ -21,29 +21,24 @@ ehthumbs.db
 [Dd]esktop.ini
 
 # Unity
-**/[Ll]ibrary/
-**/[Tt]emp/
+UnityProject/[Ll]ibrary/
+UnityProject/[Tt]emp/
+UnityProject/**.pidb.meta
+UnityProject/*.csproj
+UnityProject/*.sln
 *.unitypackage
-*.pidb.meta
-Unity/[Bb]uild/
-Unity/*.csproj
-Unity/*.sln
-*.xml.meta
-*.pdb.meta
-*.mdb.meta
 
-# GameWork.Core
-Unity/Assets/GameWork/Core
-Unity/Assets/GameWork/Core.meta
+# GameWork
+[Bb]uild/
+UnityProject/Assets/GameWork/Core/*
+UnityProject/Assets/GameWork/Editor/*
+UnityProject/Assets/GameWork/Engine/*
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
 
 # Debugging
 *.log
-
-# GameWork
-[Bb]uild/
 
 # Visual Studio
 [Pp]ackages/
@@ -56,5 +51,5 @@ sysinfo.txt
 
 # Keep
 !lib/**/*.dll
-!Unity/Assets/Plugins/GameWork/ThirdParty/*
+
 *$RANDOM_SEED$*
