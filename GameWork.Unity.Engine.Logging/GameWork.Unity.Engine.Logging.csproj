@@ -39,6 +39,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GameWork.Core.Logging">
+      <HintPath>..\bin\Core\GameWork.Core.Logging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
@@ -48,13 +52,6 @@
   <ItemGroup>
     <Compile Include="LoggerAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GameWork.Core\GameWork.Core.Logging\GameWork.Core.Logging.csproj">
-      <Project>{fb406b0e-aed7-4482-9866-b64c7a64bb6c}</Project>
-      <Name>GameWork.Core.Logging</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

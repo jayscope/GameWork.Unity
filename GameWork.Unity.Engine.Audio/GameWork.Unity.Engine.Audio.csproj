@@ -39,6 +39,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GameWork.Core.Audio">
+      <HintPath>..\bin\Core\GameWork.Core.Audio.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
@@ -49,13 +53,6 @@
     <Compile Include="AudioChannel.cs" />
     <Compile Include="AudioChannelFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GameWork.Core\GameWork.Core.Audio\GameWork.Core.Audio.csproj">
-      <Project>{115076f7-d8a0-422b-a70d-f0d0a6d2f64c}</Project>
-      <Name>GameWork.Core.Audio</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

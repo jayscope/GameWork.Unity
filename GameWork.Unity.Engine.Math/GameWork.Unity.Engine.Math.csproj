@@ -40,6 +40,10 @@
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GameWork.Core.Math">
+      <HintPath>..\bin\Core\GameWork.Core.Math.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
@@ -49,13 +53,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\Vector3Extensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GameWork.Core\GameWork.Core.Math\GameWork.Core.Math.csproj">
-      <Project>{10a3459a-dcc3-4261-bb8d-517451ca0e9c}</Project>
-      <Name>GameWork.Core.Math</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

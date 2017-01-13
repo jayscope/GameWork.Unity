@@ -39,6 +39,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GameWork.Core.ObjectPool">
+      <HintPath>..\bin\Core\GameWork.Core.ObjectPool.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
@@ -48,13 +52,6 @@
   <ItemGroup>
     <Compile Include="GameObjectContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GameWork.Core\GameWork.Core.ObjectPool\GameWork.Core.ObjectPool.csproj">
-      <Project>{7C2A6405-D635-467B-BFBF-3F802C9E7174}</Project>
-      <Name>GameWork.Core.ObjectPool</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
