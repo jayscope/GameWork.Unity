@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
@@ -6,53 +7,65 @@ using UnityEngine;
 
 public static class BuildGameWorkPackage
 {
-    private const string GameWorkDir = "Assets/GameWork";
+	private const string GameWorkDir = "Assets/GameWork";
 
-    private static string PackagePath
-    {
-        get
-        {
-            var rootDir = Directory.GetParent(Application.dataPath).Parent.FullName;
-            var packageFile = rootDir + "/Build/GameWork.unitypackage";
-            return packageFile;
-        }
-    }
+	private static readonly string[] FileNameBlacklist = new string[]
+	{
+		"$RANDOM_SEED$"
+	};
 
-    [MenuItem("Tools/Build GameWork Package")]
-    public static void Build()
-    {
-        EditorUtility.DisplayProgressBar("Building GameWork Package", "Pre-processing...", 0);
+	private static string PackagePath
+	{
+		get
+		{
+			var rootDir = Directory.GetParent(Application.dataPath).Parent.FullName;
+			var packageFile = rootDir + "/Build/GameWork.unitypackage";
+			return packageFile;
+		}
+	}
 
-        var packageAssetPaths = new List<string>();
-        var assetPaths = AssetDatabase.GetAllAssetPaths();
+	[MenuItem("Tools/Build GameWork Package")]
+	public static void Build()
+	{
+		EditorUtility.DisplayProgressBar("Building GameWork Package", "Pre-processing...", 0);
 
-        // GameWork
-        var progress = 0f;
-        foreach (var assetPath in assetPaths)
-        {
-            EditorUtility.DisplayProgressBar("Building GameWork Package", assetPath, progress / assetPaths.Length);
+		var packageAssetPaths = new List<string>();
+		var assetPaths = AssetDatabase.GetAllAssetPaths();
 
-            if (assetPath.StartsWith(GameWorkDir))
-            {
-                packageAssetPaths.Add(assetPath);
-                Debug.Log("Adding: " + assetPath);
-            }
+		// GameWork
+		var progress = 0f;
+		foreach (var assetPath in assetPaths)
+		{
+			EditorUtility.DisplayProgressBar("Building GameWork Package", assetPath, progress / assetPaths.Length);
 
-            progress++;
-        }
+			if (assetPath.StartsWith(GameWorkDir)
+				&& IsNotBlacklisted(assetPath))
+			{
+				packageAssetPaths.Add(assetPath);
+				Debug.Log("Adding: " + assetPath);
+			}
 
-        EditorUtility.DisplayProgressBar("Building GameWork Package", "Exporting...", 1);
+			progress++;
+		}
 
-        var packageDir = Path.GetDirectoryName(PackagePath);
-        if (!Directory.Exists(packageDir))
-        {
-            Directory.CreateDirectory(packageDir);
-        }
+		EditorUtility.DisplayProgressBar("Building GameWork Package", "Exporting...", 1);
 
-        AssetDatabase.ExportPackage(packageAssetPaths.ToArray(), PackagePath);
+		var packageDir = Path.GetDirectoryName(PackagePath);
+		if (!Directory.Exists(packageDir))
+		{
+			Directory.CreateDirectory(packageDir);
+		}
 
-        Debug.Log("Exported package to: \"" + PackagePath + "\"");
+		AssetDatabase.ExportPackage(packageAssetPaths.ToArray(), PackagePath);
 
-        EditorUtility.ClearProgressBar();
-    }
+		Debug.Log("Exported package to: \"" + PackagePath + "\"");
+
+		EditorUtility.ClearProgressBar();
+	}
+
+	private static bool IsNotBlacklisted(string assetPath)
+	{
+		var fileName = Path.GetFileName(assetPath);
+		return !FileNameBlacklist.Contains(fileName);
+	}
 }
