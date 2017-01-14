@@ -54,6 +54,12 @@
     <Compile Include="AudioChannelFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameWork.Unity.Engine.GameObject\GameWork.Unity.Engine.GameObject.csproj">
+      <Project>{86445E9B-F32C-4D17-945B-4A75EC1AF3A7}</Project>
+      <Name>GameWork.Unity.Engine.GameObject</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
