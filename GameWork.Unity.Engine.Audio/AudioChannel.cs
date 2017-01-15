@@ -69,7 +69,7 @@ namespace GameWork.Unity.Engine.Audio
 			_audioSource.Stop();
 		}
 
-		public void Sync()
+		public void Tick()
 		{
 			if(_master != null)
 			{
