@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{6E8CD6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Unity.Engine.GameObject", "GameWork.Unity.Engine.GameObject\GameWork.Unity.Engine.GameObject.csproj", "{86445E9B-F32C-4D17-945B-4A75EC1AF3A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Unity.Engine.States", "GameWork.Unity.Engine.States\GameWork.Unity.Engine.States.csproj", "{7FDEE61C-22DF-497C-A337-47C44D87B79F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{86445E9B-F32C-4D17-945B-4A75EC1AF3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86445E9B-F32C-4D17-945B-4A75EC1AF3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86445E9B-F32C-4D17-945B-4A75EC1AF3A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FDEE61C-22DF-497C-A337-47C44D87B79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FDEE61C-22DF-497C-A337-47C44D87B79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FDEE61C-22DF-497C-A337-47C44D87B79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FDEE61C-22DF-497C-A337-47C44D87B79F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +86,7 @@ Global
 		{7FBBE731-AE9C-45E5-A7DC-E91E79443848} = {1E385AF5-BBC4-4BFB-B6B4-97064D2276E3}
 		{5AB4607F-C41A-4B9B-A4AF-3BD0580F910A} = {6E8CD679-E8C6-4EF8-AD47-F3F334EFD296}
 		{52C3EED3-19DC-4F44-90C0-783BFD417A00} = {6E8CD679-E8C6-4EF8-AD47-F3F334EFD296}
+		{86445E9B-F32C-4D17-945B-4A75EC1AF3A7} = {6E8CD679-E8C6-4EF8-AD47-F3F334EFD296}
+		{7FDEE61C-22DF-497C-A337-47C44D87B79F} = {6E8CD679-E8C6-4EF8-AD47-F3F334EFD296}
 	EndGlobalSection
 EndGlobal
