@@ -1,4 +1,5 @@
-﻿using GameWork.Core.Audio.Clip;
+﻿using System;
+using GameWork.Core.Audio.Clip;
 using GameWork.Core.Audio.PlatformAdaptors;
 using GameWork.Unity.Engine.GameObject.Components;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace GameWork.Unity.Engine.Audio
 
 		private readonly AudioSource _audioSource;
 		private IAudioChannel _master;
+		private Action _onComplete;
 
 		public bool IsPlaying
 		{
@@ -56,9 +58,11 @@ namespace GameWork.Unity.Engine.Audio
 			_audioSource = AudioSourceRoot.AddComponent<AudioSource>();
 		}
 
-		public void Play(AudioClipModel clip, IAudioChannel master = null)
+		public void Play(AudioClipModel clip, IAudioChannel master = null, Action onComplete = null)
 		{
 			_master = master;
+			_onComplete = onComplete;
+			// TODO create resource manager and cache resources
 			_audioSource.clip = LoadClip(clip.Name);
 			_audioSource.time = 0f;
 			_audioSource.Play();
@@ -71,11 +75,26 @@ namespace GameWork.Unity.Engine.Audio
 
 		public void Tick()
 		{
-			if(_master != null)
+			if (IsPlaying)
 			{
-				if(_master.IsPlaying && _master.PlaybackSamples < _audioSource.clip.samples)
+				if (_master != null)
 				{
-					_audioSource.timeSamples = (int)_master.PlaybackSamples;
+					if (_master.IsPlaying && _master.PlaybackSamples < _audioSource.clip.samples)
+					{
+						_audioSource.timeSamples = (int) _master.PlaybackSamples;
+					}
+				}
+			}
+			else
+			{
+				if (_onComplete != null)
+				{
+					if (_audioSource.clip.samples <= _audioSource.timeSamples)
+					{
+						var onComplete = _onComplete;
+						_onComplete = null;
+						onComplete();
+					}
 				}
 			}
 		}
