@@ -11,33 +11,38 @@ namespace GameWork.Unity.Engine.GameObject
 		/// 
 		/// Root cannot be inactive.
 		/// </summary>
-		/// <param name="absolutePath"></param>
+		/// <param name="path"></param>
+		/// <param name="root"></param>
 		/// <returns></returns>
-		public static Transform[] FindAll(string absolutePath)
+		public static Transform[] FindAll(string path, Transform root = null)
 		{
-			var segments = absolutePath.Split('/');
+			var segments = path.Split('/');
 			var level = 0;
 
-			var childObject = UnityEngine.GameObject.Find(segments[level]);
-
-			if (childObject == null)
+			if (root == null)
 			{
-				Debug.LogWarning("Couldn't find any object at path: " + absolutePath);
-				return null;
+				var rootGmeObject = UnityEngine.GameObject.Find(segments[level]);
+				level++;
+
+				if (rootGmeObject == null)
+				{
+					Debug.LogWarning("Couldn't find any object at path: " + path);
+					return null;
+				}
+
+				root = rootGmeObject.transform;
 			}
 
-			var rootTransform = childObject.transform;
+			var currentLevel = new List<Transform> { root };
 
-			var currentLevel = new List<Transform> { rootTransform };
-
-			var matches = FindMatches(++level, segments, currentLevel);
+			var matches = FindMatches(level, segments, currentLevel);
 
 			return matches.ToArray();
 		}
 
-		public static UnityEngine.GameObject[] FindAllGameObjects(string absolutePath)
+		public static UnityEngine.GameObject[] FindAllGameObjects(string path)
 		{
-			var results = FindAll(absolutePath);
+			var results = FindAll(path);
 			return results.Select(t => t.gameObject).ToArray();
 		}
 
@@ -46,21 +51,21 @@ namespace GameWork.Unity.Engine.GameObject
 		/// 
 		/// Root cannot be inactive.
 		/// </summary>
-		/// <param name="absolutePath"></param>
+		/// <param name="path"></param>
 		/// <returns></returns>
-		public static Transform Find(string absolutePath)
+		public static Transform Find(string path, Transform root = null)
 		{
-			var results = FindAll(absolutePath);
+			var results = FindAll(path, root);
 
 			if (results.Length != 1)
 			{
 				if (results.Length == 0)
 				{
-					Debug.LogWarning($"Couldn't find any objects matching the path: \"{absolutePath}\"");
+					Debug.LogWarning($"Couldn't find any objects matching the path: \"{path}\"");
 				}
 				else
 				{
-					Debug.LogWarning($"Found {results.Length} objects matching the path: \"{absolutePath}\"");
+					Debug.LogWarning($"Found {results.Length} objects matching the path: \"{path}\"");
 				}
 
 				return null;
@@ -69,21 +74,21 @@ namespace GameWork.Unity.Engine.GameObject
 			return results[0];
 		}
 
-		public static UnityEngine.GameObject FindGameObject(string absolutePath)
+		public static UnityEngine.GameObject FindGameObject(string path, UnityEngine.GameObject root = null)
 		{
-			var result = Find(absolutePath);
+			var result = Find(path, root.transform);
 			return result.gameObject;
 		}
-
-		public static UnityEngine.GameObject[] FindAllChildren(string absolutePath)
+		
+		public static UnityEngine.GameObject[] FindAllChildren(string path, UnityEngine.GameObject root = null)
 		{
-			var result = Find(absolutePath);
+			var result = Find(path, root?.transform);
 
 			var childCount = result.childCount;
 
 			if (childCount < 1)
 			{
-				Debug.LogWarning($"Couldn't find any children of the object matching the path: \"{absolutePath}\"");
+				Debug.LogWarning($"Couldn't find any children of the object matching the path: \"{path}\"");
 				return null;
 			}
 
