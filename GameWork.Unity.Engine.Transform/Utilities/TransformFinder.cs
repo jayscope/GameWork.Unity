@@ -1,20 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-namespace GameWork.Unity.Engine.GameObject
+namespace GameWork.Unity.Engine.Transform.Utilities
 {
-	public static class FindUtil
+	public static class TransformFinder
 	{
-		/// <summary>
-		/// Breadth first search for game objects.
-		/// 
-		/// Root cannot be inactive.
-		/// </summary>
-		/// <param name="path"></param>
-		/// <param name="root"></param>
-		/// <returns></returns>
-		public static Transform[] FindAll(string path, Transform root = null)
+		public static UnityEngine.Transform[] FindAll(string path, UnityEngine.Transform root = null)
 		{
 			var segments = path.Split('/');
 			var level = 0;
@@ -33,27 +24,13 @@ namespace GameWork.Unity.Engine.GameObject
 				root = rootGmeObject.transform;
 			}
 
-			var currentLevel = new List<Transform> { root };
+			var currentLevel = new List<UnityEngine.Transform> { root };
 
 			var matches = FindMatches(level, segments, currentLevel);
-
 			return matches.ToArray();
 		}
 
-		public static UnityEngine.GameObject[] FindAllGameObjects(string path)
-		{
-			var results = FindAll(path);
-			return results.Select(t => t.gameObject).ToArray();
-		}
-
-		/// <summary>
-		/// Breadth first search for game objects.
-		/// 
-		/// Root cannot be inactive.
-		/// </summary>
-		/// <param name="path"></param>
-		/// <returns></returns>
-		public static Transform Find(string path, Transform root = null)
+		public static UnityEngine.Transform Find(string path, UnityEngine.Transform root = null)
 		{
 			var results = FindAll(path, root);
 
@@ -73,16 +50,11 @@ namespace GameWork.Unity.Engine.GameObject
 
 			return results[0];
 		}
-
-		public static UnityEngine.GameObject FindGameObject(string path, UnityEngine.GameObject root = null)
-		{
-			var result = Find(path, root.transform);
-			return result.gameObject;
-		}
 		
-		public static UnityEngine.GameObject[] FindAllChildren(string path, UnityEngine.GameObject root = null)
+		
+		public static UnityEngine.Transform[] FindAllChildren(string path, UnityEngine.Transform root = null)
 		{
-			var result = Find(path, root?.transform);
+			var result = Find(path, root);
 
 			var childCount = result.childCount;
 
@@ -92,21 +64,21 @@ namespace GameWork.Unity.Engine.GameObject
 				return null;
 			}
 
-			var children = new List<Transform>();
+			var children = new List<UnityEngine.Transform>();
 
 			for (var i = 0; i < childCount; i++)
 			{
 				children.Add(result.GetChild(i));
 			}
 
-			return children.Select(t => t.gameObject).ToArray();
+			return children.ToArray();
 		}
 
-		private static List<Transform> FindMatches(int level, IList<string> pathSegments, List<Transform> currentLevel)
+		private static List<UnityEngine.Transform> FindMatches(int level, IList<string> pathSegments, List<UnityEngine.Transform> currentLevel)
 		{
 			while (pathSegments.Count > level && currentLevel.Count > 0)
 			{
-				var nextLevel = new List<Transform>();
+				var nextLevel = new List<UnityEngine.Transform>();
 
 				foreach (var transform in currentLevel)
 				{
@@ -126,6 +98,5 @@ namespace GameWork.Unity.Engine.GameObject
 
 			return currentLevel;
 		}
-
 	}
 }

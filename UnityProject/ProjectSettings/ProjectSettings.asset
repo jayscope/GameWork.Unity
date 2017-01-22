@@ -526,7 +526,7 @@ PlayerSettings:
     Game_Performance: 0
     Hub: 0
     Purchasing: 0
-    UNet: 0
+    UNet: 1
     Unity_Ads: 0
   cloudProjectId: 165d5b8b-8cca-408f-b2d6-997f10fbb422
   projectName: Tests

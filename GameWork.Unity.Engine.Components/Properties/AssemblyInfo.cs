@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GameWork.Unity.Engine.GameObject")]
+[assembly: AssemblyTitle("GameWork.Unity.Engine.Components")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GameWork.Unity.Engine.GameObject")]
+[assembly: AssemblyProduct("GameWork.Unity.Engine.Components")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("86445e9b-f32c-4d17-945b-4a75ec1af3a7")]
+[assembly: Guid("12b33e66-481d-47dd-87f3-eb9fac607f09")]
 
 // Version information for an assembly consists of the following four values:
 //

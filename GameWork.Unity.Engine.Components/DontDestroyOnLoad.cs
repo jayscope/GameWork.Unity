@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GameWork.Unity.Engine.GameObject.Components
+namespace GameWork.Unity.Engine.Components
 {
     public class DontDestroyOnLoad : MonoBehaviour
 	{

@@ -1,8 +1,8 @@
 ﻿using System;
 using GameWork.Core.Audio.Clip;
 using GameWork.Core.Audio.PlatformAdaptors;
-using GameWork.Unity.Engine.GameObject.Components;
 using UnityEngine;
+using GameWork.Unity.Engine.Components;
 
 namespace GameWork.Unity.Engine.Audio
 {

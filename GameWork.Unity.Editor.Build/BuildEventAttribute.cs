@@ -9,8 +9,12 @@ namespace GameWork.Unity.Editor.Build
         public EventType EventType { get; set; }
         public int Order { get; set; }
         public BuildTarget[] BuildTargets { get; set; }
-        
-        public BuildEvent(EventType eventType, int order = 0, params BuildTarget[] buildTargets)
+
+		public BuildEvent(EventType eventType, params BuildTarget[] buildTargets) : this(eventType, 0, buildTargets)
+		{
+		}
+
+		public BuildEvent(EventType eventType, int order = 0, params BuildTarget[] buildTargets)
         {
             EventType = eventType;
             Order = order;
