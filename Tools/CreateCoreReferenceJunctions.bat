@@ -53,4 +53,7 @@
  ::START
  ::::::::::::::::::::::::::::
  REM Run shell as admin (example) - put here code as you like
+
+ if not exist "..\bin" mkdir "..\bin"
+
  mklink /j "..\bin\Core" "..\GameWork.Core\bin"
