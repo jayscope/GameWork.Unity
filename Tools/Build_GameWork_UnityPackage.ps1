@@ -3,7 +3,7 @@
 $unityPath = "C:\Program Files\Unity\Editor\Unity.exe"
 
 $logFile = ".\BuildPackage.log"
-$projectDir = "..\UnityProject"
+$projectDir = resolve-path "..\UnityProject\"
 
 Write-Output "Logging to: $logFile"
 Write-Output "Opening project: $projectDir"
