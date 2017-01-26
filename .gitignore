@@ -47,9 +47,10 @@ sysinfo.txt
 **/*.dll
 **/*.mdb
 **/*.pdb
-**/*.xml
 
 # Keep
 !lib/**/*.dll
 
 *$RANDOM_SEED$*
+UnityProject/Assets/GameWork/GitCommit.txt
+UnityProject/Assets/GameWork/GitCommit.txt.meta
