@@ -9,12 +9,7 @@ public static class BuildGameWorkPackage
 {
 	private const string GameWorkDir = "Assets/GameWork";
 
-	private static readonly string[] FileNameBlacklist = new string[]
-	{
-		"$RANDOM_SEED$"
-	};
-
-	private static string PackagePath
+	private static string PackageFile
 	{
 		get
 		{
@@ -24,10 +19,24 @@ public static class BuildGameWorkPackage
 		}
 	}
 
+	private static readonly string[] FileNameBlacklist = new string[]
+	{
+		"$RANDOM_SEED$"
+	};
+
 	[MenuItem("Tools/Build GameWork Package")]
 	public static void Build()
 	{
 		EditorUtility.DisplayProgressBar("Building GameWork Package", "Pre-processing...", 0);
+
+		try
+		{
+			SaveCurrentCommitInfo.GetAndSave();
+		}
+		catch (Exception exception)
+		{
+			Debug.LogError(exception.Message);
+		}
 
 		var packageAssetPaths = new List<string>();
 		var assetPaths = AssetDatabase.GetAllAssetPaths();
@@ -50,15 +59,15 @@ public static class BuildGameWorkPackage
 
 		EditorUtility.DisplayProgressBar("Building GameWork Package", "Exporting...", 1);
 
-		var packageDir = Path.GetDirectoryName(PackagePath);
+		var packageDir = Path.GetDirectoryName(PackageFile);
 		if (!Directory.Exists(packageDir))
 		{
 			Directory.CreateDirectory(packageDir);
 		}
 
-		AssetDatabase.ExportPackage(packageAssetPaths.ToArray(), PackagePath);
+		AssetDatabase.ExportPackage(packageAssetPaths.ToArray(), PackageFile);
 
-		Debug.Log("Exported package to: \"" + PackagePath + "\"");
+		Debug.Log("Exported package to: \"" + PackageFile + "\"");
 
 		EditorUtility.ClearProgressBar();
 	}
