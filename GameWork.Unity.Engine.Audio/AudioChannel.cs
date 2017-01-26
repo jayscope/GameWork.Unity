@@ -8,44 +8,36 @@ namespace GameWork.Unity.Engine.Audio
 {
 	public class AudioChannel : IAudioChannel
 	{
-		private static UnityEngine.GameObject AudioSourceRootInstance;
+		private static GameObject _audioSourceRootInstance;
 
-		private static UnityEngine.GameObject AudioSourceRoot
+		private static GameObject AudioSourceRoot
 		{
 			get
 			{
-				if (AudioSourceRootInstance == null)
+				if (_audioSourceRootInstance == null)
 				{
-					AudioSourceRootInstance = UnityEngine.GameObject.Find("AudioChannels");
+					_audioSourceRootInstance = GameObject.Find("AudioChannels");
 
-					if (AudioSourceRootInstance == null)
+					if (_audioSourceRootInstance == null)
 					{
-						AudioSourceRootInstance	= new UnityEngine.GameObject("AudioChannels", typeof(DontDestroyOnLoad));
+						_audioSourceRootInstance	= new GameObject("AudioChannels", typeof(DontDestroyOnLoad));
 					}
 				}
 
-				return AudioSourceRootInstance;
+				return _audioSourceRootInstance;
 			}
 		}
 
 		private readonly AudioSource _audioSource;
 		private IAudioChannel _master;
 		private Action _onComplete;
+		private float _inverseClipFrequency;
 
-		public bool IsPlaying
-		{
-			get { return _audioSource.isPlaying; }
-		}
+		public bool IsPlaying => _audioSource.isPlaying;
 
-		public float PlaybackSeconds
-		{
-			get { return _audioSource.time; }
-		}
+		public float PlaybackSeconds => _audioSource.timeSamples * _inverseClipFrequency;
 
-		public int PlaybackSamples
-		{
-			get { return _audioSource.timeSamples; }
-		}
+		public int PlaybackSamples => _audioSource.timeSamples;
 
 		public float Volume
 		{
@@ -62,8 +54,8 @@ namespace GameWork.Unity.Engine.Audio
 		{
 			_master = master;
 			_onComplete = onComplete;
-			// TODO create resource manager and cache resources
 			_audioSource.clip = LoadClip(clip.Name);
+			_inverseClipFrequency = 1f / _audioSource.clip.frequency;
 			_audioSource.time = 0f;
 			_audioSource.Play();
 		}

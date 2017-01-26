@@ -12,7 +12,7 @@ namespace GameWork.Unity.Engine.Transform.Utilities
 
 			if (root == null)
 			{
-				var rootGmeObject = UnityEngine.GameObject.Find(segments[level]);
+				var rootGmeObject = GameObject.Find(segments[level]);
 				level++;
 
 				if (rootGmeObject == null)
