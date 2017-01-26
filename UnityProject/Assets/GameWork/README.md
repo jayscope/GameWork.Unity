@@ -11,8 +11,7 @@ Dependencies:
 GameWork.Core which is added as a submodule.
 
 Build Tools:
-BuildAll:
-Run .\Tools\BuildAll.ps1 which will do all the below steps.
+BuildAll: Run .\Tools\BuildAll.ps1 which will do all the below steps.
 
 Individual Steps:
 1. Build .\GameWork.Core\GameWork.Core.sln (GameWork.Unity is dependant on this project)
