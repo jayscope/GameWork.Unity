@@ -58,6 +58,7 @@
     <ProjectReference Include="..\GameWork.Unity.Engine.Components\GameWork.Unity.Engine.Components.csproj">
       <Project>{12B33E66-481D-47DD-87F3-EB9FAC607F09}</Project>
       <Name>GameWork.Unity.Engine.Components</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

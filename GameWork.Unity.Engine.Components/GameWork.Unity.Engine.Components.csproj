@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +46,7 @@
     <ProjectReference Include="..\GameWork.Unity.Engine.Transform\GameWork.Unity.Engine.Transform.csproj">
       <Project>{0c715d3f-0d82-46c7-9c83-533a673e3942}</Project>
       <Name>GameWork.Unity.Engine.Transform</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
