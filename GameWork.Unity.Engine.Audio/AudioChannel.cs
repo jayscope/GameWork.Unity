@@ -31,11 +31,10 @@ namespace GameWork.Unity.Engine.Audio
 		private readonly AudioSource _audioSource;
 		private IAudioChannel _master;
 		private Action _onComplete;
-		private float _inverseClipFrequency;
 
 		public bool IsPlaying => _audioSource.isPlaying;
 
-		public float PlaybackSeconds => _audioSource.timeSamples * _inverseClipFrequency;
+		public float PlaybackSeconds => _audioSource.timeSamples * _audioSource.clip.frequency;
 
 		public int PlaybackSamples => _audioSource.timeSamples;
 
@@ -55,7 +54,6 @@ namespace GameWork.Unity.Engine.Audio
 			_master = master;
 			_onComplete = onComplete;
 			_audioSource.clip = LoadClip(clip.Name);
-			_inverseClipFrequency = 1f / _audioSource.clip.frequency;
 			_audioSource.time = 0f;
 			_audioSource.Play();
 		}
