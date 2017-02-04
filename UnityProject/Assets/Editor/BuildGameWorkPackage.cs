@@ -21,7 +21,8 @@ namespace GameWork.Unity.Assets.Editor
 
 		private static readonly string[] FileNameBlacklist = new string[]
 		{
-			"$RANDOM_SEED$"
+			"$RANDOM_SEED$",
+			".mdb"
 		};
 
 		[MenuItem("Tools/Build GameWork Package")]
@@ -77,7 +78,7 @@ namespace GameWork.Unity.Assets.Editor
 		private static bool IsNotBlacklisted(string assetPath)
 		{
 			var fileName = Path.GetFileName(assetPath);
-			return !FileNameBlacklist.Contains(fileName);
+			return !FileNameBlacklist.Any(blacklisted => fileName.Contains(blacklisted));
 		}
 	}
 }

@@ -8,6 +8,6 @@ $projectDir = resolve-path "..\UnityProject\"
 Write-Output "Logging to: $logFile"
 Write-Output "Opening project: $projectDir"
 
-& $unityPath -quit -batchMode -logFile $logFile -projectPath $projectDir -executeMethod BuildGameWorkPackage.Build
+& $unityPath -quit -batchMode -logFile $logFile -projectPath $projectDir -executeMethod GameWork.Unity.Assets.Editor.BuildGameWorkPackage.Build
 
 Pause
