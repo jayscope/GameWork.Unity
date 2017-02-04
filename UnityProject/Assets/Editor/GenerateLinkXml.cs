@@ -57,7 +57,7 @@ namespace GameWork.Unity.Assets.Editor
 			foreach (var assemblyPath in Directory.GetFiles(Paths.AbsoluteGameWorkFolder, "*.dll", SearchOption.AllDirectories))
 			{
 				// Don't include anything inside an Editor folder
-				if (!Directory.GetDirectories(assemblyPath).Contains("Editor"))
+				if (!GetParentDirectoryNames(assemblyPath).Contains("Editor"))
 				{
 					var assemblyName = AssemblyName.GetAssemblyName(assemblyPath);
 					assemblyNames.Add(assemblyName.Name);
@@ -65,6 +65,21 @@ namespace GameWork.Unity.Assets.Editor
 			}
 
 			return assemblyNames;
+		}
+
+		private static List<string> GetParentDirectoryNames(string path)
+		{
+			var parentDirectoryNames = new List<string>();
+
+			var parent = Directory.GetParent(path);
+
+			while (parent != null)
+			{
+				parentDirectoryNames.Add(parent.Name);
+				parent = parent.Parent;
+			}
+
+			return parentDirectoryNames;
 		}
 	}
 }

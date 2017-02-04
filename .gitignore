@@ -30,9 +30,7 @@ UnityProject/*.sln
 
 # GameWork
 [Bb]uild/
-UnityProject/Assets/GameWork/Core/*
-UnityProject/Assets/GameWork/Editor/*
-UnityProject/Assets/GameWork/Engine/*
+UnityProject/Assets/GameWork/
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
@@ -44,13 +42,13 @@ sysinfo.txt
 [Pp]ackages/
 **/[Oo]bj/**
 **/[Bb]in/**
-**/*.dll
-**/*.mdb
-**/*.pdb
+*.dll
+*.mdb
+*.mdb.meta
+*.pdb
+*.pdb.meta
 
 # Keep
 !lib/**/*.dll
 
 *$RANDOM_SEED$*
-UnityProject/Assets/GameWork/GitCommit.txt
-UnityProject/Assets/GameWork/GitCommit.txt.meta
