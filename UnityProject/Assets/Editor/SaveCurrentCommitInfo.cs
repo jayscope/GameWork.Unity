@@ -5,74 +5,77 @@ using UnityEditor;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-public static class SaveCurrentCommitInfo
+namespace GameWork.Unity.Assets.Editor
 {
-	private const int TimeOutMilliseconds = 1000;
-
-	private static string WriteFileCommands
+	public static class SaveCurrentCommitInfo
 	{
-		get
+		private const int TimeOutMilliseconds = 1000;
+
+		private static string WriteFileCommands
 		{
-			return "git show --oneline -s > " +
-					CurrentCommitInfoPath;
+			get
+			{
+				return "git show --oneline -s > " +
+						CurrentCommitInfoFile;
+			}
 		}
-	}
 	
-	private static string GitProjectFolder
-	{
-		get
+		private static string GitProjectFolder
 		{
-			return Directory.GetParent(Application.dataPath).Parent.FullName;
-		}
-	}
-
-	private static string CurrentCommitInfoPath
-	{
-		get
-		{
-			return Application.dataPath + "/GameWork/GitCommit.txt";
-		}
-	}
-
-	public static void GetAndSave()
-	{
-		if (File.Exists(CurrentCommitInfoPath))
-		{
-			File.Delete(CurrentCommitInfoPath);
+			get
+			{
+				return Directory.GetParent(Application.dataPath).Parent.FullName;
+			}
 		}
 
-		var startInfo = new ProcessStartInfo()
+		private static string CurrentCommitInfoFile
 		{
-			FileName = "cmd.exe",
-			WorkingDirectory = GitProjectFolder,
-			UseShellExecute = false,
-			RedirectStandardInput = true,
-			WindowStyle = ProcessWindowStyle.Hidden,
-			CreateNoWindow = true
-		};
+			get
+			{
+				return Paths.AbsoluteGameWorkFolder + "/GitCommit.txt";
+			}
+		}
+
+		public static void GetAndSave()
+		{
+			if (File.Exists(CurrentCommitInfoFile))
+			{
+				File.Delete(CurrentCommitInfoFile);
+			}
+
+			var startInfo = new ProcessStartInfo()
+			{
+				FileName = "cmd.exe",
+				WorkingDirectory = GitProjectFolder,
+				UseShellExecute = false,
+				RedirectStandardInput = true,
+				WindowStyle = ProcessWindowStyle.Hidden,
+				CreateNoWindow = true
+			};
 		
-		var process = Process.Start(startInfo);
-		process.StandardInput.WriteLine();
-		process.StandardInput.WriteLine(WriteFileCommands);
-		process.StandardInput.WriteLine("exit");
-		process.WaitForExit();
+			var process = Process.Start(startInfo);
+			process.StandardInput.WriteLine();
+			process.StandardInput.WriteLine(WriteFileCommands);
+			process.StandardInput.WriteLine("exit");
+			process.WaitForExit();
 
-		var timer = new Stopwatch();
-		timer.Start();
-		while (!File.Exists(CurrentCommitInfoPath) && timer.ElapsedMilliseconds < TimeOutMilliseconds)
-		{
-			Thread.Sleep(10);	
-		}
+			var timer = new Stopwatch();
+			timer.Start();
+			while (!File.Exists(CurrentCommitInfoFile) && timer.ElapsedMilliseconds < TimeOutMilliseconds)
+			{
+				Thread.Sleep(10);	
+			}
 
-		AssetDatabase.ImportAsset(CurrentCommitInfoPath);
+			AssetDatabase.ImportAsset(CurrentCommitInfoFile);
 
-		if (!File.Exists(CurrentCommitInfoPath))
-		{
-			Debug.LogError("Failed: " + WriteFileCommands);
-		}
-		else
-		{
-			Debug.Log("Created: " + CurrentCommitInfoPath);	
+			if (!File.Exists(CurrentCommitInfoFile))
+			{
+				Debug.LogError("Failed: " + WriteFileCommands);
+			}
+			else
+			{
+				Debug.Log("Created: " + CurrentCommitInfoFile);	
+			}
 		}
 	}
 }
