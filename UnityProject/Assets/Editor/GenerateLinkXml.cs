@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Xml;
 using UnityEditor;
@@ -23,7 +24,7 @@ namespace GameWork.Unity.Assets.Editor
 
 		public static void Generate()
 		{
-			var assemblyNames = GetAssemblyNames(Paths.AbsoluteGameWorkFolder);
+			var assemblyNames = GetAssemblyNames();
 			var linkerXmlDoc = GenerateLinkerXml(assemblyNames);
 			linkerXmlDoc.Save(AbsoluteLinkXmlFile);
 
@@ -49,14 +50,18 @@ namespace GameWork.Unity.Assets.Editor
 			return linkerDoc;
 		}
 
-		private static List<string> GetAssemblyNames(string folder)
+		private static List<string> GetAssemblyNames()
 		{
 			var assemblyNames = new List<string>();
 
-			foreach (var assemblyPath in Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories))
+			foreach (var assemblyPath in Directory.GetFiles(Paths.AbsoluteGameWorkFolder, "*.dll", SearchOption.AllDirectories))
 			{
-				var assemblyName = AssemblyName.GetAssemblyName(assemblyPath);
-				assemblyNames.Add(assemblyName.Name);
+				// Don't include anything inside an Editor folder
+				if (!Directory.GetDirectories(assemblyPath).Contains("Editor"))
+				{
+					var assemblyName = AssemblyName.GetAssemblyName(assemblyPath);
+					assemblyNames.Add(assemblyName.Name);
+				}
 			}
 
 			return assemblyNames;
