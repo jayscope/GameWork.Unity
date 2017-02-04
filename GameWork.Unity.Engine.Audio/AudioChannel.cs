@@ -34,7 +34,7 @@ namespace GameWork.Unity.Engine.Audio
 
 		public bool IsPlaying => _audioSource.isPlaying;
 
-		public float PlaybackSeconds => _audioSource.timeSamples * _audioSource.clip.frequency;
+		public float PlaybackSeconds => _audioSource.timeSamples / (float)_audioSource.clip.frequency;
 
 		public int PlaybackSamples => _audioSource.timeSamples;
 
