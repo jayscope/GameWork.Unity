@@ -1,3 +1,4 @@
 [submodule "GameWork.Core"]
 	path = GameWork.Core
-url=git@github.com:Game-Work/GameWork.Core.git
+	url=git@github.com:Game-Work/GameWork.Core.git
+	branch = master
