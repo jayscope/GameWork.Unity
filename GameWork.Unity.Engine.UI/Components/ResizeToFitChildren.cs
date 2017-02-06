@@ -19,7 +19,7 @@ namespace GameWork.Unity.Engine.UI.Components
             _rectTransform = GetComponent<RectTransform>();
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             Resize();
         }
