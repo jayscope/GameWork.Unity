@@ -1,7 +1,6 @@
 # Must be executed from the Tools folder
 
-$msbuild = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
-
+$devenv = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv"
 $nuget = ".\nuget.exe"
 
 # 1. Build .\GameWork.Core\GameWork.Core.sln (GameWork.Unity is dependant on this project)
@@ -19,7 +18,7 @@ Pop-Location
 # 3. Build .\GameWork.Unity.sln.
 
 & $nuget restore "..\GameWork.Unity.sln"
-& $msbuild "..\GameWork.Unity.sln"
+& $devenv "..\GameWork.Unity.sln" /build
 
 # 4. Run .\Tools\CreateUnityReferenceJunctions.bat (This will create the symlinks necessary for the UnityProject to build the GameWork.unitypackage)
 
