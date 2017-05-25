@@ -9,15 +9,17 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <OutputPath>C:\Work\Projects\GameWork.Unity\bin\Unity\Engine</OutputPath>
+    <OutputPath>..\bin\Unity\Engine</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="GameWork.Core.IO">
       <HintPath>..\bin\Core\net35\GameWork.Core.IO.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="GameWork.Core.Models">
       <HintPath>..\bin\Core\net35\GameWork.Core.Models.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>

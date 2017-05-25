@@ -5,12 +5,13 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <OutputPath>C:\Work\Projects\GameWork.Unity\bin\Unity\Engine</OutputPath>
+    <OutputPath>..\bin\Unity\Engine</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="GameWork.Core.Math">
       <HintPath>..\bin\Core\net35\GameWork.Core.Math.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>

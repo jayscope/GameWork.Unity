@@ -6,7 +6,7 @@
 
 
   <PropertyGroup>
-    <OutputPath>C:\Work\Projects\GameWork.Unity\bin\Unity\Engine</OutputPath>
+    <OutputPath>..\bin\Unity\Engine</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
