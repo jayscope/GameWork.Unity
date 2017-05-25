@@ -4,14 +4,19 @@
     <TargetFramework>net35</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\GameWork.Core\GameWork.Core.Math\GameWork.Core.Math.csproj" />
-  </ItemGroup>
+  <PropertyGroup>
+    <OutputPath>C:\Work\Projects\GameWork.Unity\bin\Unity\Engine</OutputPath>
+  </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="GameWork.Core.Math">
+      <HintPath>..\bin\Core\net35\GameWork.Core.Math.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
+
 
 </Project>

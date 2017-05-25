@@ -8,14 +8,22 @@
     <PackageReference Include="Json.Net.Unity3D" Version="9.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\GameWork.Core\GameWork.Core.IO\GameWork.Core.IO.csproj" />
-  </ItemGroup>
+  <PropertyGroup>
+    <OutputPath>C:\Work\Projects\GameWork.Unity\bin\Unity\Engine</OutputPath>
+  </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="GameWork.Core.IO">
+      <HintPath>..\bin\Core\net35\GameWork.Core.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="GameWork.Core.Models">
+      <HintPath>..\bin\Core\net35\GameWork.Core.Models.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
+
 
 </Project>

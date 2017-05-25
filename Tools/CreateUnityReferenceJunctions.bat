@@ -53,7 +53,7 @@
  ::START
  ::::::::::::::::::::::::::::
  REM Run shell as admin (example) - put here code as you like
- mklink /j "..\UnityProject\Assets\GameWork\Core" "..\bin\Core"
- mklink /j "..\UnityProject\Assets\GameWork\Editor" "..\bin\Editor"
- mklink /j "..\UnityProject\Assets\GameWork\Engine" "..\bin\Engine"
+ mklink /j "..\UnityProject\Assets\GameWork\Core" "..\bin\Core\net35"
+ mklink /j "..\UnityProject\Assets\GameWork\Editor" "..\bin\Unity\Editor\net35"
+ mklink /j "..\UnityProject\Assets\GameWork\Engine" "..\bin\Unity\Engine\net35"
  mklink /h "..\UnityProject\Assets\GameWork\README.md" "..\README.md"

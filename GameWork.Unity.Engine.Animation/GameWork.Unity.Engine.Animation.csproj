@@ -4,9 +4,15 @@
     <TargetFramework>net35</TargetFramework>
   </PropertyGroup>
 
+
+  <PropertyGroup>
+    <OutputPath>C:\Work\Projects\GameWork.Unity\bin\Unity\Engine</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
 

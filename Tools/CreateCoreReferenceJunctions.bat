@@ -54,6 +54,6 @@
  ::::::::::::::::::::::::::::
  REM Run shell as admin (example) - put here code as you like
 
- if not exist "..\bin" mkdir "..\bin"
+ if not exist "..\bin\Core" mkdir "..\bin\Core"
 
- mklink /j "..\bin\Core" "..\GameWork.Core\bin"
+ mklink /j "..\bin\Core\net35" "..\GameWork.Core\bin\net35"

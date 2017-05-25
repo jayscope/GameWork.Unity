@@ -5,14 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GameWork.Core\GameWork.Core.Audio\GameWork.Core.Audio.csproj" />
     <ProjectReference Include="..\GameWork.Unity.Engine.Components\GameWork.Unity.Engine.Components.csproj" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <OutputPath>C:\Work\Projects\GameWork.Unity\bin\Unity\Engine</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
+    <Reference Include="GameWork.Core.Audio">
+      <HintPath>..\bin\Core\net35\GameWork.Core.Audio.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
+
 
 </Project>
