@@ -1,19 +1,19 @@
-GameWork.Unity
+# Overview
 
 C# Framework for Unity, extending the C# .Net GameWork.Core framework.
 
-Purpose:
+## Purpose
 
 Collection and tools and scripts to aid development in Unity.
 
-Dependencies:
+## Dependencies
 
 GameWork.Core which is added as a submodule.
 
-Build Tools:
+## Build Tools
 RunAll: Run .\Tools\BuildAll.ps1 which will do all the below steps.
 
-Individual Steps:
+### Individual Steps:
 1. Build .\GameWork.Core\GameWork.Core.sln (GameWork.Unity is dependant on this project)
 2. Run .\Tools\CreateCoreReferrenceJunctions.bat (this will create the symlinks required for GameWork.Unity.sln to resolve any dependencies on GameWork.Core)
 3. Build .\GameWork.Unity.sln.
@@ -21,6 +21,8 @@ Individual Steps:
 5. Open the UnityProject in the Unity Editor and use the menu Tools/Build GameWork Package to build the GameWork.unitypackage.
 6. Find the GameWork.unitypackage in .\Build
 
+# License
+See the [license](LICENSE.md) file.
 
-Source:
-https://github.com/Game-Work/GameWork.Unity
+# Contributors
+See the [contributors](CONTRIBUTORS.md) file.
