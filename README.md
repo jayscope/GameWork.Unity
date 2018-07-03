@@ -2,24 +2,24 @@
 
 C# Framework for Unity, extending the C# .Net GameWork.Core framework.
 
-## Purpose
-
-Collection and tools and scripts to aid development in Unity.
-
 ## Dependencies
+See the [GameWork.Core](GameWork.Core/README.md) docs.
 
-GameWork.Core which is added as a submodule.
-
-## Build Tools
-RunAll: Run .\Tools\BuildAll.ps1 which will do all the below steps.
-
-### Individual Steps:
-1. Build .\GameWork.Core\GameWork.Core.sln (GameWork.Unity is dependant on this project)
-2. Run .\Tools\CreateCoreReferrenceJunctions.bat (this will create the symlinks required for GameWork.Unity.sln to resolve any dependencies on GameWork.Core)
-3. Build .\GameWork.Unity.sln.
-4. Run .\Tools\CreateUnityReferenceJunctions.bat (This will create the symlinks necessary for the UnityProject to build the GameWork.unitypackage)
-5. Open the UnityProject in the Unity Editor and use the menu Tools/Build GameWork Package to build the GameWork.unitypackage.
-6. Find the GameWork.unitypackage in .\Build
+## Components
+Name | Function | Docs
+ - | - | -
+Animation |  | [Doc](docs/components/Animation.md)
+Audio |   | [Doc](docs/components/Audio.md)
+Build |  | [Doc](docs/components/Build.md)
+Components |  | [Doc](docs/components/Components.md)
+Extensions |  | [Doc](docs/components/Extensions.md)
+GameObjectPool |  | [Doc](docs/components/GameObjectPool.md)
+IO |  | [Doc](docs/components/IO.md)
+Logging |  | [Doc](docs/components/Logging.md)
+Math |  | [Doc](docs/components/Math.md) 
+States |  | [Doc](docs/components/States.md)
+Transform |  | [Doc](docs/components/Transform.md)
+UI |  | [Doc](docs/components/UI.md)
 
 # License
 See the [license](LICENSE.md) file.

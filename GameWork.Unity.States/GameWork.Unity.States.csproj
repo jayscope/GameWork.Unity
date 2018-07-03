@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputPath>..\Unity\Assets\GameWork\States</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameWork.Core\GameWork.Core.States\GameWork.Core.States.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>    
+    <Reference Include="UnityEngine">
+      <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

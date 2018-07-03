@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputPath>..\Unity\Assets\GameWork\GameObjectPool</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameWork.Core\GameWork.Core.ObjectPool\GameWork.Core.ObjectPool.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>    
+    <Reference Include="UnityEngine">
+      <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+
+</Project>

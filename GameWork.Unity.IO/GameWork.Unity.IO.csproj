@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Json.Net.Unity3D" Version="9.0.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputPath>..\Unity\Assets\GameWork\IO</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameWork.Core\GameWork.Core.IO\GameWork.Core.IO.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>    
+    <Reference Include="UnityEngine">
+      <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameWork.Core\GameWork.Core.Audio\GameWork.Core.Audio.csproj" />
+    <ProjectReference Include="..\GameWork.Unity.Components\GameWork.Unity.Components.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputPath>..\Unity\Assets\GameWork\Audio</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>    
+    <Reference Include="UnityEngine">
+      <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+
+</Project>

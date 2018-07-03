@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameWork.Unity.Transform\GameWork.Unity.Transform.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputPath>..\Unity\Assets\GameWork\Components</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>..\lib\unity\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+
+</Project>
