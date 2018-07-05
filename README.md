@@ -8,8 +8,8 @@ See the [GameWork.Core](https://github.com/JaredGG/GameWork.Core/#overview) docs
 ## Components
 Name | Function | Docs
 | - | - | - |
-Animation |  | [Doc](docs/components/Animation.md)
-Audio |   | [Doc](docs/components/Audio.md)
+Animation | Animation related components. | [Doc](docs/components/Animation.md)
+Audio | Unity specific implemtation of [GameWork.Core.Audio](https://github.com/JaredGG/GameWork.Core/blob/master/docs/components/Audio.md). | [Doc](docs/components/Audio.md)
 Build |  | [Doc](docs/components/Build.md)
 Components |  | [Doc](docs/components/Components.md)
 Extensions |  | [Doc](docs/components/Extensions.md)
