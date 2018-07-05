@@ -3,6 +3,9 @@ using UnityEditor;
 
 namespace GameWork.Unity.Editor.Build
 {
+    /// <summary>
+    /// Pre/Post build event attribute to decorate Pre/Post build static methods.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class BuildEvent : Attribute
     {

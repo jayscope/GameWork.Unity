@@ -6,10 +6,13 @@ using GameWork.Unity.Engine.Components;
 
 namespace GameWork.Unity.Engine.Audio
 {
+    /// <summary>
+    /// This finds for or creates a GameObject called AudioChannels that the Audio Channels are added to.
+    /// </summary>
 	public class AudioChannel : IAudioChannel
 	{
 		private static GameObject _audioSourceRootInstance;
-
+        
 		private static GameObject AudioSourceRoot
 		{
 			get
@@ -20,7 +23,7 @@ namespace GameWork.Unity.Engine.Audio
 
 					if (_audioSourceRootInstance == null)
 					{
-						_audioSourceRootInstance	= new GameObject("AudioChannels", typeof(DontDestroyOnLoad));
+						_audioSourceRootInstance = new GameObject("AudioChannels", typeof(DontDestroyOnLoad));
 					}
 				}
 
@@ -40,8 +43,8 @@ namespace GameWork.Unity.Engine.Audio
 
 		public float Volume
 		{
-			get { return _audioSource.volume; }
-			set { _audioSource.volume = value; }
+			get => _audioSource.volume;
+		    set => _audioSource.volume = value;
 		}
 
 		public AudioChannel()
@@ -49,6 +52,12 @@ namespace GameWork.Unity.Engine.Audio
 			_audioSource = AudioSourceRoot.AddComponent<AudioSource>();
 		}
 
+        /// <summary>
+        /// Set <see cref="AudioClipModel.Name"/> to the path of the audio clip in the resources folder.
+        /// </summary>
+        /// <param name="clip"></param>
+        /// <param name="master"></param>
+        /// <param name="onComplete"></param>
 		public void Play(AudioClipModel clip, IAudioChannel master = null, Action onComplete = null)
 		{
 			_master = master;
@@ -89,6 +98,11 @@ namespace GameWork.Unity.Engine.Audio
 			}
 		}
 
+        /// <summary>
+        /// Override this to load audio in a different way.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
 		protected virtual AudioClip LoadClip(string path)
 		{
 			return Resources.Load<AudioClip>(path);
