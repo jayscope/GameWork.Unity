@@ -27,8 +27,8 @@ namespace GameWork.Unity.Editor.Build.Tests
                  + "Got: \"" + string.Join(", ", _eventsOrder.Select(i => i.ToString()).ToArray()) + "\"\n");
         }
 
-        [TestCase(BuildTarget.Android, new string[] { "android_pre", "mobile_pre", "android_post", "mobile_post" })]
-        [TestCase(BuildTarget.iOS, new string[] { "ios_pre", "mobile_pre", "ios_post", "mobile_post" })]
+        [TestCase(BuildTarget.Android, new[] { "android_pre", "mobile_pre", "android_post", "mobile_post" })]
+        [TestCase(BuildTarget.iOS, new[] { "ios_pre", "mobile_pre", "ios_post", "mobile_post" })]
         public static void TestEventTargets(BuildTarget buildTarget, string[] expected)
         {
             _eventTargets.Clear();

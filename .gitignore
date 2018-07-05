@@ -5,6 +5,9 @@
 obj/
 bin/
 
+# Resharper
+*.DotSettings.user
+
 # 
 # Temp Files
 #

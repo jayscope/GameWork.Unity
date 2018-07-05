@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace GameWork.Unity.Editor.Build
 {
+    /// <summary>
+    /// Contains the build logic.
+    /// </summary>
 	public static class Builder
 	{
 		public static string BuildPath { private get; set; }
@@ -26,26 +29,9 @@ namespace GameWork.Unity.Editor.Build
 					case BuildTarget.Android:
 						return ".apk";
 
-					case BuildTarget.StandaloneLinux:
-					case BuildTarget.StandaloneLinux64:
-					case BuildTarget.StandaloneLinuxUniversal:
-					case BuildTarget.StandaloneOSXUniversal:
-					case BuildTarget.StandaloneOSXIntel:
-					case BuildTarget.StandaloneOSXIntel64:
-					case BuildTarget.WSAPlayer:
-					case BuildTarget.Tizen:
-					case BuildTarget.PSP2:
-					case BuildTarget.PS4:
-					case BuildTarget.PSM:
-					case BuildTarget.XboxOne:
-					case BuildTarget.SamsungTV:
-					case BuildTarget.WiiU:
-					case BuildTarget.tvOS:
-						throw new NotImplementedException();
-
-					default:
-						throw new ArgumentOutOfRangeException();
-				}
+				    default:
+				        throw new NotImplementedException();
+                }
 			}
 		}
 
@@ -80,7 +66,7 @@ namespace GameWork.Unity.Editor.Build
 
 			buildEventCache.Execute(EventType.Post, buildTarget);
 
-			UnityEngine.Debug.Log($"Build to: {buildPath}");
+			Debug.Log($"Build to: {buildPath}");
 
 			return buildPath;
 		}
@@ -89,7 +75,7 @@ namespace GameWork.Unity.Editor.Build
 		{
 			if (EditorUserBuildSettings.activeBuildTarget != buildTarget)
 			{
-				EditorUserBuildSettings.SwitchActiveBuildTarget(buildTarget);
+				EditorUserBuildSettings.SwitchActiveBuildTarget(BuildPipeline.GetBuildTargetGroup(buildTarget), buildTarget);
 			}
 		}
 
