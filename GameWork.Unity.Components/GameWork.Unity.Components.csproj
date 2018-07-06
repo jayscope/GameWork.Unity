@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <OutputPath>..\Unity\Assets\GameWork\Components</OutputPath>
+    <OutputPath>..\Unity\Assets\GameWork</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

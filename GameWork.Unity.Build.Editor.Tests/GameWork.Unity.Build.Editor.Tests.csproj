@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <OutputPath>..\Unity\Assets\GameWork\Build\Editor\Tests</OutputPath>
+    <OutputPath>..\Unity\Assets\GameWork\Editor</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +19,10 @@
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>..\lib\unity\UnityEditor.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>..\lib\unity\UnityEngine.TestRunner.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>

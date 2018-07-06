@@ -5,74 +5,73 @@ using UnityEditor;
 
 namespace GameWork.Unity.Editor.Build.Tests
 {
-    [TestFixture]
-    public static class BuildEventTests
+    public class BuildEventTests
     {
-        public static List<int> _eventsOrder = new List<int>();
+        public static List<int> EventsOrder = new List<int>();
 
-        public static List<string> _eventTargets = new List<string>();
+        public static List<string> EventTargets = new List<string>();
 
         [Test]
-        public static void TestEventOrder()
+        public void TestEventOrder()
         {
-            _eventsOrder.Clear();
+            EventsOrder.Clear();
 
             Builder.Build();
 
             var expectedOrder = Enumerable.Range(1, 6).ToArray();
 
-            Assert.True(_eventsOrder.SequenceEqual(expectedOrder),
+            Assert.True(EventsOrder.SequenceEqual(expectedOrder),
                 "Events not in correct order. \n"                
                  + "Expected: \"" + string.Join(", ", expectedOrder.Select(i => i.ToString()).ToArray()) + "\"\n" 
-                 + "Got: \"" + string.Join(", ", _eventsOrder.Select(i => i.ToString()).ToArray()) + "\"\n");
+                 + "Got: \"" + string.Join(", ", EventsOrder.Select(i => i.ToString()).ToArray()) + "\"\n");
         }
 
         [TestCase(BuildTarget.Android, new[] { "android_pre", "mobile_pre", "android_post", "mobile_post" })]
         [TestCase(BuildTarget.iOS, new[] { "ios_pre", "mobile_pre", "ios_post", "mobile_post" })]
-        public static void TestEventTargets(BuildTarget buildTarget, string[] expected)
+        public void TestEventTargets(BuildTarget buildTarget, string[] expected)
         {
-            _eventTargets.Clear();
+            EventTargets.Clear();
             Builder.Build(buildTarget);
-            Assert.True(_eventTargets.SequenceEqual(expected),
+            Assert.True(EventTargets.SequenceEqual(expected),
                 "Expected: \"" + string.Join(", ", expected) + "\"\n"
-                + "Got: \"" + string.Join(", ", _eventTargets.ToArray()) + "\"");
+                + "Got: \"" + string.Join(", ", EventTargets.ToArray()) + "\"");
         }
 
         #region TestEventOrder
         [BuildEvent(EventType.Pre, 1)]
         private static void PreBuildEvent1()
         {
-            _eventsOrder.Add(1);
+            EventsOrder.Add(1);
         }
 
         [BuildEvent(EventType.Pre, 2)]
         private static void PreBuildEvent2()
         {
-            _eventsOrder.Add(2);
+            EventsOrder.Add(2);
         }
 
         [BuildEvent(EventType.Pre, 3)]
         private static void PreBuildEvent3()
         {
-            _eventsOrder.Add(3);
+            EventsOrder.Add(3);
         }
 
         [BuildEvent(EventType.Post, 1)]
         private static void PostBuildEvent1()
         {
-            _eventsOrder.Add(4);
+            EventsOrder.Add(4);
         }
 
         [BuildEvent(EventType.Post, 2)]
         private static void PostBuildEvent2()
         {
-            _eventsOrder.Add(5);
+            EventsOrder.Add(5);
         }
 
         [BuildEvent(EventType.Post, 3)]
         private static void PostBuildEvent3()
         {
-            _eventsOrder.Add(6);
+            EventsOrder.Add(6);
         }
         #endregion
 
@@ -80,37 +79,37 @@ namespace GameWork.Unity.Editor.Build.Tests
         [BuildEvent(EventType.Pre, 100, BuildTarget.Android, BuildTarget.iOS)]
         private static void PreBuildEventMobile()
         {
-            _eventTargets.Add("mobile_pre");
+            EventTargets.Add("mobile_pre");
         }
 
         [BuildEvent(EventType.Post, 100, BuildTarget.Android, BuildTarget.iOS)]
         private static void PostBuildEventMobile()
         {
-            _eventTargets.Add("mobile_post");
+            EventTargets.Add("mobile_post");
         }
 
         [BuildEvent(EventType.Pre, 0, BuildTarget.Android)]
         private static void PreBuildEventAndriod()
         {
-            _eventTargets.Add("android_pre");
+            EventTargets.Add("android_pre");
         }
 
         [BuildEvent(EventType.Post, 0, BuildTarget.Android)]
         private static void PostBuildEventAndroid()
         {
-            _eventTargets.Add("android_post");
+            EventTargets.Add("android_post");
         }
 
         [BuildEvent(EventType.Pre, 0, BuildTarget.iOS)]
         private static void PreBuildEventIOS()
         {
-            _eventTargets.Add("ios_pre");
+            EventTargets.Add("ios_pre");
         }
 
         [BuildEvent(EventType.Post, 0, BuildTarget.iOS)]
         private static void PostBuildEventIOS()
         {
-            _eventTargets.Add("ios_post");
+            EventTargets.Add("ios_post");
         }
         #endregion
     }

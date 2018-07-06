@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <OutputPath>..\Unity\Assets\GameWork\Build\Editor</OutputPath>
+    <OutputPath>..\Unity\Assets\GameWork\Editor</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
