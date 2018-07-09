@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEditor;
+﻿using UnityEditor;
 
-namespace GameWork.Unity.Editor.Build
+namespace GameWork.Unity.Build.Editor
 {
     /// <summary>
     /// Menu entry for the GameWork Unity Build System.

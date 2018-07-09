@@ -1,7 +1,7 @@
 ﻿using GameWork.Core.States.Event;
 using UnityEngine.SceneManagement;
 
-namespace GameWork.Unity.Engine.States
+namespace GameWork.Unity.States
 {
 	public class ChangeSceneEventStateTransition : EventStateTransition
 	{

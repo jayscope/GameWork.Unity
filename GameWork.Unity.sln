@@ -67,6 +67,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameWork.Core.States.Tests"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameWork.Core.Utilities", "GameWork.Core\GameWork.Core.Utilities\GameWork.Core.Utilities.csproj", "{ADFE7782-C9B6-4DF7-BE61-AFAE804B03D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameWork.Unity.Logging.Tests", "GameWork.Unity.Logging.Tests\GameWork.Unity.Logging.Tests.csproj", "{A5941EA3-BEA7-4269-B962-4751743631BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -197,6 +199,10 @@ Global
 		{ADFE7782-C9B6-4DF7-BE61-AFAE804B03D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADFE7782-C9B6-4DF7-BE61-AFAE804B03D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADFE7782-C9B6-4DF7-BE61-AFAE804B03D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5941EA3-BEA7-4269-B962-4751743631BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5941EA3-BEA7-4269-B962-4751743631BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5941EA3-BEA7-4269-B962-4751743631BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5941EA3-BEA7-4269-B962-4751743631BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

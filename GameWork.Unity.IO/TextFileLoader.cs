@@ -1,8 +1,8 @@
 ﻿using System.IO;
-using GameWork.Core.IO.PlatformAdaptors;
+using GameWork.Core.IO.Loaders.PlatformAdapters;
 using UnityEngine;
 
-namespace GameWork.Unity.Engine.IO
+namespace GameWork.Unity.IO
 {
 	public class TextFileLoader : ITextFileLoader
 	{

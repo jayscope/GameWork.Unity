@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace GameWork.Unity.Editor.Build
+namespace GameWork.Unity.Build.Editor
 {
     public static class CommandlineBuilder
     {

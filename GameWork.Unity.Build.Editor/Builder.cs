@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace GameWork.Unity.Editor.Build
+namespace GameWork.Unity.Build.Editor
 {
     /// <summary>
     /// Contains the build logic.

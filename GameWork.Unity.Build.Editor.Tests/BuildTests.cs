@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using UnityEditor;
 
-namespace GameWork.Unity.Editor.Build.Tests
+namespace GameWork.Unity.Build.Editor.Tests
 {
     [TestFixture]
     public static class BuildTests

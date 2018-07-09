@@ -3,7 +3,7 @@ using GameWork.Core.IO.Readers.PlatformAdaptors;
 using GameWork.Core.Models.Interfaces;
 using Newtonsoft.Json;
 
-namespace GameWork.Unity.Engine.IO
+namespace GameWork.Unity.IO
 {
 	public class JsonReader : IJsonReader, IModelReader
 	{

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace GameWork.Unity.Engine.Transform.Utilities
+namespace GameWork.Unity.Transform.Utilities
 {
 	public static class TransformFinder
 	{

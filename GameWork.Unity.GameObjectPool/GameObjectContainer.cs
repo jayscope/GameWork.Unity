@@ -1,7 +1,7 @@
 ﻿using GameWork.Core.ObjectPool;
 using UnityEngine;
 
-namespace GameWork.Unity.Engine.GameObjectPool
+namespace GameWork.Unity.GameObjectPool
 {
     public class GameObjectContainer : PoolableObjectContainer<GameObject>
     {

@@ -1,4 +1,4 @@
-﻿namespace GameWork.Unity.Engine.Math.Extensions
+﻿namespace GameWork.Unity.Math.Extensions
 {
 	public static class TypeConversionExtensions
 	{

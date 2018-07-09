@@ -1,4 +1,4 @@
-﻿namespace GameWork.Unity.Editor.Build
+﻿namespace GameWork.Unity.Build.Editor
 {
     public enum EventType
     {

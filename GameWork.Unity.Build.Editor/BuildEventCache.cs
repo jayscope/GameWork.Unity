@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEditor;
 
-namespace GameWork.Unity.Editor.Build
+namespace GameWork.Unity.Build.Editor
 {
     public class BuildEventCache
     {

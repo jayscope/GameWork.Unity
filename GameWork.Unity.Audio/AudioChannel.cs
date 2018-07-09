@@ -1,10 +1,10 @@
 ﻿using System;
 using GameWork.Core.Audio.Clip;
 using GameWork.Core.Audio.PlatformAdaptors;
+using GameWork.Unity.Components;
 using UnityEngine;
-using GameWork.Unity.Engine.Components;
 
-namespace GameWork.Unity.Engine.Audio
+namespace GameWork.Unity.Audio
 {
     /// <summary>
     /// This finds for or creates a GameObject called AudioChannels that the Audio Channels are added to.

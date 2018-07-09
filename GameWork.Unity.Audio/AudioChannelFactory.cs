@@ -1,6 +1,6 @@
 ﻿using GameWork.Core.Audio.PlatformAdaptors;
 
-namespace GameWork.Unity.Engine.Audio
+namespace GameWork.Unity.Audio
 {
     public class AudioChannelFactory : IAudioChannelFactory
     {

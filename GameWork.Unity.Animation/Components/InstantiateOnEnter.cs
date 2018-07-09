@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GameWork.Unity.Engine.Animation.Components
+namespace GameWork.Unity.Animation.Components
 {
 	/// <summary>
 	/// Attach this to an animation state to instantiate a specific 

@@ -1,4 +1,4 @@
-﻿namespace GameWork.Unity.Engine.Components.Utilities
+﻿namespace GameWork.Unity.Components.Utilities
 {
 	public static class ComponentFinder
 	{

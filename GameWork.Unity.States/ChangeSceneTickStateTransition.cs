@@ -1,4 +1,4 @@
-﻿namespace GameWork.Unity.Engine.States
+﻿namespace GameWork.Unity.States
 {
 	public abstract class ChangeSceneTickStateTransition : ChangeSceneEventStateTransition
 	{

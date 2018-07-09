@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEditor;
 
-namespace GameWork.Unity.Editor.Build
+namespace GameWork.Unity.Build.Editor
 {
     /// <summary>
     /// Pre/Post build event attribute to decorate Pre/Post build static methods.
